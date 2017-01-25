@@ -9,7 +9,7 @@ const github = require('../lib/github');
 
 router.get('/randomword', (req, res) => {
   // send back JSON with a random word from `randomword.js`
-  randomWord.get( word => res.json({word: word}) );
+  randomWord.get( word => res.json({word}) );
 });
 
 router.get('/randomuser', (req, res) => {
@@ -25,16 +25,19 @@ router.get('/trivia', (req, res) => {
   // send back JSON with all the trivia questions from 'trivia.js'
   // send back JSON a single trivia question from 'trivia.js'
   trivia.get( (trivia) => {
-    res.json({trivia: trivia});
+    res.json({trivia});
   })
 });
 
 // GET /exchange?amount=50
 router.get('/exchange', (req, res) => {
-  const {amount} = req.query;
+  const amount = parseInt(req.query.amount);
   // send back JSON of that amount in different currencies from 'exchange.js'
-  exchange.get( (rates) => {
-    res.json({rates: rates});
+  exchange.get( (data) => {
+    for (let rate in data.rates) {
+      data.rates[rate] = data.rates[rate] * amount;
+    }
+    res.json({data});
   })
 });
 
