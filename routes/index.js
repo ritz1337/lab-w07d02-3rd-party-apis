@@ -21,4 +21,9 @@ router.get('/dev', (req, res) => {
   res.render('dev', {});
 });
 
+router.post('/sample', (req, res) => {
+  console.log(req.body);
+  res.json(req.body);
+});
+
 module.exports = router;
