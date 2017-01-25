@@ -2,7 +2,7 @@
   "name": "lab-w07d02-3rd-party-apis",
   "version": "1.0.0",
   "description": "Just as the browser can act as a client and make requests to the server, our server can act as a client and make requests.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ritz1337/lab-w07d02-3rd-party-apis#readme",
   "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
     "request": "^2.79.0"
   }
 }
