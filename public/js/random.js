@@ -7,21 +7,20 @@ function handleGetRandomWord(evt) {
 }
 
 function getWord() {
-  return fetch('/randomword').then( res => res.json() );
+  return fetch('/randomword').then( res => res.json() ).then( data => data.word );
 }
 
 function getUser() {
-  return fetch('/randomuser').then( res => res.json() );
+  return fetch('/randomuser').then( res => res.json() ).then( data => data.user );
 }
 
-function renderWord(data) {
+function renderWord(word) {
   return (`
-    <p class="word">${data.word}</p>
+    <p class="word">${word}</p>
   `)
 }
 
-function renderUser(data) {
-  const {user} = data;
+function renderUser(user) {
   const {first, last} = user.name;
   return (`
     <p class="user">${first} ${last}</p>

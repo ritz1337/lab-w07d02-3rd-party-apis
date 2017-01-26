@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const randomWord = require('../lib/randomword');
-const randomUser = require('../lib/randomuser');
+const randomuser = require('../lib/randomuser');
 const trivia = require('../lib/trivia');
 const exchange = require('../lib/exchange');
 const recipes = require('../lib/recipes');
@@ -12,7 +12,7 @@ router.get('/randomword', (req, res) => {
 });
 
 router.get('/randomuser', (req, res) => {
-  randomUser.get( (user) => {
+  randomuser.get( (user) => {
     res.json({user});
   });
 });
